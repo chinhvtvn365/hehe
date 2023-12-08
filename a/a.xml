@@ -1,4 +1,4 @@
-﻿<krpano>
+<krpano>
 
 	<!-- krpano 1.21 - Virtual Tour Skin -->
 
@@ -97,11 +97,11 @@
 
 
 	<!-- VR support - https://krpano.com/plugins/webvr/ -->
-	<include url="webvr.xml" />
+	<include url="%VIEWER%/plugins/webvr.xml" />
 	
 	<!-- overwrite some settings from the webvr.xml for the skin integration -->
 	<plugin name="webvr" keep="true" devices="webgl"
-	        url="calc:skin_settings.webvr == true ? 'webvr.js' : null"
+	        url="calc:skin_settings.webvr == true ? '%VIEWER%/plugins/webvr.js' : null"
 	        onavailable="skin_webvr_onavailable();"
 	        onentervr="skin_showloading(false); webvr_onentervr(); skin_webvr_setup(); skin_reloadscene_webvr();"
 	        onexitvr="webvr_onexitvr(); skin_webvr_setup(); skin_reloadscene_webvr();"
@@ -219,9 +219,9 @@
 	</action>
 	
 	<!-- VR scene switching hotspots -->
-	<!-- <style name="skin_webvr_menu_style" torigin="view" depth="1000" scale="0.625" distorted="true" ath="0" atv="45" alpha="0.5" />
+	<style name="skin_webvr_menu_style" torigin="view" depth="1000" scale="0.625" distorted="true" ath="0" atv="45" alpha="0.5" />
 	<hotspot name="skin_webvr_prev_scene" keep="true" style="skin_base|skin_webvr_menu_style" crop="0|64|64|64"  ox="-88" onover="tween(scale,0.750);" onout="tween(scale,0.625);" vr_timeout="750" onclick="skin_nextscene_loop(-1);" visible="false" devices="webgl" />
-	<hotspot name="skin_webvr_next_scene" keep="true" style="skin_base|skin_webvr_menu_style" crop="64|64|64|64" ox="+88" onover="tween(scale,0.750);" onout="tween(scale,0.625);" vr_timeout="750" onclick="skin_nextscene_loop(+1);" visible="false" devices="webgl" /> -->
+	<hotspot name="skin_webvr_next_scene" keep="true" style="skin_base|skin_webvr_menu_style" crop="64|64|64|64" ox="+88" onover="tween(scale,0.750);" onout="tween(scale,0.625);" vr_timeout="750" onclick="skin_nextscene_loop(+1);" visible="false" devices="webgl" />
 	
 	<!-- floating/following VR hotspots -->
 	<action name="skin_webvr_menu_following" type="Javascript"><![CDATA[
@@ -363,7 +363,7 @@
 
 
 	<!-- skin layout -->
-	<!-- <layer name="skin_layer" keep="true" type="container" align="top" width="get:skin_settings.layout_width" maxwidth="get:skin_settings.layout_maxwidth" height="100%" maskchildren="true" visible="false" bgcapture="false" zorder="1">
+	<layer name="skin_layer" keep="true" type="container" align="top" width="get:skin_settings.layout_width" maxwidth="get:skin_settings.layout_maxwidth" height="100%" maskchildren="true" visible="false" bgcapture="false" zorder="1">
 		<layer name="skin_scroll_window" type="container" align="bottom" width="100%" height="100%" x="0" y="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="1" bgroundedge.firefox="1">
 			<layer name="skin_scroll_layer" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="100%" x="0" y="200" y_offset="get:skin_settings.controlbar_overlap" accuracy="1" bgalpha="get:skin_settings.design_bgalpha" bgcolor="get:skin_settings.design_bgcolor" bgborder="get:skin_settings.design_bgborder" bgroundedge="get:skin_settings.design_bgroundedge" bgshadow="get:skin_settings.design_bgshadow">
 				<layer name="skin_title" type="text" align="lefttop" edge="leftbottom" x="4" y="0" zorder="4" enabled="false" bg="false" css="calc:skin_settings.design_text_css + ' text-align:left; font-style:italic; font-size:12px;'" txtshadow="get:skin_settings.design_text_txtshadow" visible="false" onautosized="skin_video_updateseekbarwidth();" />
@@ -394,9 +394,9 @@
 					</layer>
 				</layer>
 			</layer>
-		</layer> -->
+		</layer>
 
-		<!-- <layer name="skin_splitter_bottom" type="container" align="bottom" width="100%" height="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" y="0" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="2">
+		<layer name="skin_splitter_bottom" type="container" align="bottom" width="100%" height="calc:skin_settings.controlbar_offset + skin_settings.controlbar_height - skin_settings.controlbar_overlap" y="0" maskchildren="true" onloaded="skin_calc_opened_closed();" zorder="2">
 			<layer name="skin_control_bar_bg" type="container" align="bottom" width="get:skin_settings.controlbar_width" height="calc:skin_settings.controlbar_height + skin_settings.controlbar_overlap" x="0" y="get:skin_settings.controlbar_offset" bgcolor="get:skin_settings.design_bgcolor" bgalpha="get:skin_settings.design_bgalpha" bgborder="get:skin_settings.design_bgborder" bgroundedge="get:skin_settings.design_bgroundedge" bgshadow="get:skin_settings.design_bgshadow" />
 		</layer>
 
@@ -427,19 +427,19 @@
 		<layer name="skin_loadingtext" type="text" align="center" x="5" y="-5" html="get:skin_settings.loadingtext" visible="false" bg="false" enabled="false" css="calc:skin_settings.design_text_css + ' text-align:center; font-style:italic; font-size:22px;'" txtshadow="get:skin_settings.design_text_txtshadow" />
 		<layer name="skin_buttonglow"  style="skin_base" crop="64|384|64|64" align="center" x="0" y="1" scale="1.0" alpha="0.0" visible="false" enabled="false" />
 		<layer name="skin_thumbborder" type="container" x="get:skin_settings.design_thumbborder_padding" y="get:skin_settings.design_thumbborder_padding" width="calc:skin_settings.thumbs_width - 2*skin_settings.design_thumbborder_padding" height="calc:skin_settings.thumbs_height - 2*skin_settings.design_thumbborder_padding" visible="false" enabled="false" align="lefttop" bgborder="get:skin_settings.design_thumbborder_bgborder" bgroundedge="get:skin_settings.design_thumbborder_bgroundedge" />
-	</layer> -->
+	</layer>
 
 	<!-- previous/next scene buttons for the hidden skin mode -->
-	<!-- <layer name="skin_btn_prev_fs" keep="true" type="container" align="lefttop"  x="-50" width="40" height="100%" bgcapture="true" alpha="0.0" enabled="false" capture="false" zorder="2" onclick="skin_nextscene_loop(-1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
+	<layer name="skin_btn_prev_fs" keep="true" type="container" align="lefttop"  x="-50" width="40" height="100%" bgcapture="true" alpha="0.0" enabled="false" capture="false" zorder="2" onclick="skin_nextscene_loop(-1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
 		<layer name="skin_btn_prev_fs_icon" style="skin_base" crop="0|64|64|64"  align="center" scale="0.5" enabled="false" />
 	</layer>
 	<layer name="skin_btn_next_fs" keep="true" type="container" align="righttop" x="-50" width="40" height="100%" bgcapture="true" alpha="0.0" enabled="false" capture="false" zorder="2" onclick="skin_nextscene_loop(+1);" onhover="tween(alpha,1.0);" onout="tween(alpha,0.25);" ondown.touch="onhover();" onup.touch="onout();">
 		<layer name="skin_btn_next_fs_icon" style="skin_base" crop="64|64|64|64" align="center" scale="0.5" enabled="false" />
-	</layer> -->
+	</layer>
 
 
 	<!-- gyro plugin -->
-	<plugin name="skin_gyro" keep="true" url="" plugin_url="gyro2.js" softstart="1.0" desktopsupport="false" enabled="false"
+	<plugin name="skin_gyro" keep="true" url="" plugin_url="%VIEWER%/plugins/gyro2.js" softstart="1.0" desktopsupport="false" enabled="false"
 		onavailable="skin_arrange_buttons();"
 		ondenied="skin_gyro_ondenied();" 
 		/>
@@ -469,6 +469,7 @@
 	        onexitfullscreen.fullscreensupport="set(layer[skin_btn_fs].crop, '0|576|64|64');"
 	        onkeydown="skin_keydown_event();"
 	        />
+
 
 	<!-- skin actions -->
 	
@@ -1147,7 +1148,7 @@
 		clearinterval(skin_video_seek_updates);
 	</action>
 
-	<!-- <action name="skin_video_updatetime" scope="local" args="seekpos">
+	<action name="skin_video_updatetime" scope="local" args="seekpos">
 		copy(t1, plugin[video].time);
 		copy(t2, plugin[video].totaltime);
 		if(seekpos != null, calc(t1, seekpos * t2); );
@@ -1162,9 +1163,9 @@
 		calc(layer[skin_video_time].html, t1_min + ':' + (t1_sec LT 10 ? '0' : '') + t1_sec + ' / ' + t2_min + ':' + (t2_sec LT 10 ? '0' : '') + t2_sec);
 		calc(layer[skin_video_seekpos].x, (t1 / t2 * 100) + '%');
 		calc(layer[skin_video_loadbar].width, (plugin[video].loadedbytes / plugin[video].totalbytes * 100) + '%');
-	</action> -->
+	</action>
 
-	<!-- <action name="skin_video_updateseekbarwidth">
+	<action name="skin_video_updateseekbarwidth">
 		if(skin_settings.title,
 			calc(layer[skin_video_seekbar_container].width, 0 - (32 + layer[skin_title].pixelwidth + layer[skin_video_time].pixelwidth));
 			calc(layer[skin_video_seekbar_container].x, layer[skin_title].pixelwidth + 16);
@@ -1172,9 +1173,9 @@
 			calc(layer[skin_video_seekbar_container].width, 0 - (24 + layer[skin_video_time].pixelwidth));
 			set(layer[skin_video_seekbar_container].x, 8);
 		);
-	</action> -->
+	</action>
 
-	<!-- <action name="skin_video_ondownseeking" scope="local">
+	<action name="skin_video_ondownseeking" scope="local">
 		asyncloop(caller.pressed,
 			screentolayer(skin_video_seekbar, mouse.stagex,mouse.stagey, lx,ly);
 			calc(seekpos, lx / layer[skin_video_seekbar].pixelwidth);
@@ -1183,14 +1184,14 @@
 		  ,
 			plugin[video].seek(calc((seekpos * 100) + '%'));
 		);
-	</action> -->
+	</action>
 
-	<!-- <layer name="skin_video_playpause" keep="true"
+	<layer name="skin_video_playpause" keep="true"
 	         style="skin_base|skin_glow" crop="0|640|64|64" scale="0.75"
 	         align="center" alpha="0.0" autoalpha="true"
 	         state="hidden"
 	         onclick="skin_video_playpause_click();"
-	         /> -->
+	         />
 
 	<action name="skin_video_updatestate">
 		calc(layer[skin_video_playpause].crop, plugin[video].ispaused ? '0|640|64|64' : '64|640|64|64');
@@ -1229,7 +1230,7 @@
 	
 	<!-- autotour/autoplay support -->
 	<autorotate enabled="calc:skin_settings.autotour == true"
-	            waittime="1.0"
+	            waittime="5.0"
 	            accel="0.7"
 	            speed="4.0"
 	            tofov="80"
