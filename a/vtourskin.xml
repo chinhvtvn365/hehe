@@ -1148,7 +1148,7 @@
 		clearinterval(skin_video_seek_updates);
 	</action>
 
-	<action name="skin_video_updatetime" scope="local" args="seekpos">
+	<!-- <action name="skin_video_updatetime" scope="local" args="seekpos">
 		copy(t1, plugin[video].time);
 		copy(t2, plugin[video].totaltime);
 		if(seekpos != null, calc(t1, seekpos * t2); );
@@ -1191,7 +1191,7 @@
 	         align="center" alpha="0.0" autoalpha="true"
 	         state="hidden"
 	         onclick="skin_video_playpause_click();"
-	         />
+	         /> -->
 
 	<action name="skin_video_updatestate">
 		calc(layer[skin_video_playpause].crop, plugin[video].ispaused ? '0|640|64|64' : '64|640|64|64');
