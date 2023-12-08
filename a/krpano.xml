@@ -1,6 +1,15 @@
 <krpano version="1.21" title="CaMau Tour" onstart="" logkey="false" debugmode="false" debugkeys="true" debugjsactions="false" debugjsplugins="false" bgcolor="#ffffff" projectfloorplanurl="" projecttitleid="project_title" projectdescriptionid="">
 	<include url="vtourskin.xml" />
 		<include url="videointerface.xml" />
+	
+	<layer name="button_left_only" type="container" align="rightbottom" x="20" y="20" 
+	 bgcolor="0xFFFFFF" keep="true" bgalpha="1.0" visible="true" alpha="1.0" width="250" height="250"
+		onclick="switch(plugin[skin_gyro].enabled); if(plugin[skin_gyro].enabled, skin_showmap(false));" bgcapture="true"
+		/>
+		<layer name="butto213eft_only" type="container" align="leftbottom" x="20" y="20" 
+	 bgcolor="0xFFFFFF" keep="true" bgalpha="1.0" visible="true" alpha="1.0" width="250" height="250"
+		onclick="webvr.enterVR();" bgcapture="true"
+		/>
 <scene name="cm_0e1b59bb-c073-0ba0-aa45-3a0ed48743aa" title="Cổng vào - Quầy bán vé" index="2" 
 onstart="">
 <panoview h="-166.3987" v="-2.0195" fov="64.4670" hmin="-180" hmax="180" vmin="-90" vmax="90"/>
