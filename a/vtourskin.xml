@@ -438,7 +438,7 @@
 	</layer> -->
 
 
-		<!-- gyro plugin -->
+	<!-- gyro plugin -->
 	<plugin name="skin_gyro" keep="true" url="" plugin_url="gyro2.js" softstart="1.0" desktopsupport="false" enabled="false"
 		onavailable="skin_arrange_buttons();"
 		ondenied="skin_gyro_ondenied();" 
@@ -459,17 +459,12 @@
 
 
 	<!-- skin events -->
-	<events name="skin_events" keep="true"
-	        onxmlcomplete="set(events[skin_events].onxmlcomplete, skin_showloading(true); ); skin_showloading(true); skin_startup();"
-	        onnewpano="skin_update_scene_infos(); skin_deeplinking_update_url();"
-	        onloadcomplete="skin_showloading(false);"
-	        onidle="skin_deeplinking_update_url();"
-	        onresize="skin_onresize();"
-	        onenterfullscreen.fullscreensupport="set(layer[skin_btn_fs].crop, '64|576|64|64');"
-	        onexitfullscreen.fullscreensupport="set(layer[skin_btn_fs].crop, '0|576|64|64');"
-	        onkeydown="skin_keydown_event();"
+		<events name="skin_events" keep="true"
+	        onclick="skin_video_click_event();"
+	        onmousedown="skin_video_down_event();"
+	        onenterfullscreen.fullscreensupport="set(layer[skin_btn_fullscreen].crop, '64|576|64|64');"
+	        onexitfullscreen.fullscreensupport="set(layer[skin_btn_fullscreen].crop, '0|576|64|64');"
 	        />
-
 
 	<!-- skin actions -->
 	
@@ -1163,9 +1158,9 @@
 		calc(layer[skin_video_time].html, t1_min + ':' + (t1_sec LT 10 ? '0' : '') + t1_sec + ' / ' + t2_min + ':' + (t2_sec LT 10 ? '0' : '') + t2_sec);
 		calc(layer[skin_video_seekpos].x, (t1 / t2 * 100) + '%');
 		calc(layer[skin_video_loadbar].width, (plugin[video].loadedbytes / plugin[video].totalbytes * 100) + '%');
-	</action>
+	</action> -->
 
-	<action name="skin_video_updateseekbarwidth">
+	<!-- <action name="skin_video_updateseekbarwidth">
 		if(skin_settings.title,
 			calc(layer[skin_video_seekbar_container].width, 0 - (32 + layer[skin_title].pixelwidth + layer[skin_video_time].pixelwidth));
 			calc(layer[skin_video_seekbar_container].x, layer[skin_title].pixelwidth + 16);
@@ -1173,9 +1168,9 @@
 			calc(layer[skin_video_seekbar_container].width, 0 - (24 + layer[skin_video_time].pixelwidth));
 			set(layer[skin_video_seekbar_container].x, 8);
 		);
-	</action>
+	</action> -->
 
-	<action name="skin_video_ondownseeking" scope="local">
+	<!-- <action name="skin_video_ondownseeking" scope="local">
 		asyncloop(caller.pressed,
 			screentolayer(skin_video_seekbar, mouse.stagex,mouse.stagey, lx,ly);
 			calc(seekpos, lx / layer[skin_video_seekbar].pixelwidth);
@@ -1184,9 +1179,9 @@
 		  ,
 			plugin[video].seek(calc((seekpos * 100) + '%'));
 		);
-	</action>
+	</action> -->
 
-	<layer name="skin_video_playpause" keep="true"
+	<!-- <layer name="skin_video_playpause" keep="true"
 	         style="skin_base|skin_glow" crop="0|640|64|64" scale="0.75"
 	         align="center" alpha="0.0" autoalpha="true"
 	         state="hidden"
@@ -1230,7 +1225,7 @@
 	
 	<!-- autotour/autoplay support -->
 	<autorotate enabled="calc:skin_settings.autotour == true"
-	            waittime="5.0"
+	            waittime="1.0"
 	            accel="0.7"
 	            speed="4.0"
 	            tofov="80"
