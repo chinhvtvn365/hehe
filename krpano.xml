@@ -1,5 +1,5 @@
 <krpano version="1.21" title="CaMau Tour" onstart="startup;startLittle()" logkey="false" debugmode="false" debugkeys="true" debugjsactions="false" debugjsplugins="false" bgcolor="#ffffff" projectfloorplanurl="" projecttitleid="project_title" projectdescriptionid="">
-	<include url="/vtourskin.xml" />
+	<include url="./vtourskin.xml" />
 <scene name="cm_0e1b59bb-c073-0ba0-aa45-3a0ed48743aa" title="Cổng vào - Quầy bán vé" index="2" 
 onstart="update_radar(cm_c37f10b0-6c13-436a-be83-6f53e99ed047, 0);getMapCurrent(/data/uploads/36cd72bd-14b8-4cf1-8542-13a0b9376bbd_20231124204634-kdl-dat-mui.png, map1)">
 <panoview h="-166.3987" v="-2.0195" fov="64.4670" hmin="-180" hmax="180" vmin="-90" vmax="90"/>
