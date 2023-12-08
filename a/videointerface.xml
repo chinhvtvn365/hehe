@@ -3,6 +3,25 @@
 	<!-- krpano 1.19.pr14 - Video-Interface Skin -->
 
 
+	<!-- skin settings -->
+	<skin_settings layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
 
 	<!-- save the url path of this xml file (the url value will be adjusted during xml parsing) -->
 	<videointerfacexmlpath url="./" />
@@ -41,7 +60,17 @@
 	<krpano stagescale="calc:stagescale * 2" if="stagescale LT 1.0" devices="mobile" />
 
 
+	<!-- include VR support - http://krpano.com/plugins/webvr/ -->
+	<!-- <include url="/pano/plugins/webvr.xml" devices="html5" /> -->
 
+	<!-- overwrite some settings from the webvr.xml for the skin integration -->
+	<!-- <plugin name="WebVR" keep="true" devices="html5"
+	        mobilevr_support="true"
+	        mobilevr_fake_support="true"
+	        onavailable="removelayer(webvr_enterbutton); set(layer[skin_btn_vr].enabled,true); tween(layer[skin_btn_vr].alpha, 1.0); webvr_onavailable();"
+	        onentervr="webvr_onentervr(); webvr_setup();"
+	        vr_cursor=""
+	        /> -->
 
 	<!-- webvr button style (adjust to match skin style) -->
 	<style name="webvr_button_style"
@@ -52,7 +81,27 @@
 	       css="calc:skin_settings.design_text_css + ' font-size:' + 20*webvr_setup_scale*webvr_button_scale + 'px;'"
 	       />
 
+	<!-- show a 'rotate the device' info when the mobile device is in portrait orientation in VR mode -->
+	<!-- <layer name="webvr_rotate_to_landscape_request" keep="true" vr="true" devices="mobile"
+	       url="rotate_device.png" scale="0.5"
+	       align="top" edge="center" y="28%"
+	       autoalpha="true" alpha="0.0"
+	       enabled="false"
+	       />
 
+	<events name="webvr_events" keep="true" devices="html5"
+	        onresize.mobile="webvr_act_as_gyro_in_portrait_mode();"
+	        onviewchange=""
+	        />
+
+	<action name="webvr_setup">
+		if(webvr.isenabled,
+			webvr_act_as_gyro_in_portrait_mode(true);
+		  ,
+			tween(layer[webvr_rotate_to_landscape_request].alpha, 0.0, 0.0);
+			set(events[webvr_events].onviewchange, null);
+		  );
+	</action> -->
 
 	<action name="webvr_act_as_gyro_in_portrait_mode">
 		if(device.mobile AND webvr.isenabled,
@@ -80,7 +129,11 @@
 	</action>
 
 
+	<!-- gyro plugin -->
+	<!-- <plugin name="skin_gyro" keep="true" url="/pano/plugins/gyro2.js" devices="html5.and.touch" enabled="true" onavailable="skin_have_gyro_support();" onenable="skin_gyro_enabled();" ondisable="skin_gyro_disabled();" /> -->
 
+
+	<!-- skin styles -->
 
 	<!-- skin_base - the base skin image -->
 	<style name="skin_base" url="calc:videointerfacexmlpath.url + skin_settings.design_skin_images" />

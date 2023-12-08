@@ -6,8 +6,8 @@
 	 bgcolor="0xFFFFFF" keep="true" bgalpha="1.0" visible="true" alpha="1.0" width="250" height="250"
 		onclick="switch(plugin[skin_gyro].enabled); if(plugin[skin_gyro].enabled, skin_showmap(false));" bgcapture="true"
 		/>
-		<layer name="butto213eft_only" type="container" align="leftbottom" x="20" y="20" 
-	 bgcolor="0xFFFFFF" keep="true" bgalpha="1.0" visible="true" alpha="1.0" width="250" height="250"
+		<layer name="butto213eft_only" type="container" align="lefttop" x="20" y="20" 
+	 bgcolor="0xFFFFFF" keep="true" bgalpha="1.0" visible="true" alpha="1.0" width="100" height="120"
 		onclick="webvr.enterVR();" bgcapture="true"
 		/>
 <scene name="cm_0e1b59bb-c073-0ba0-aa45-3a0ed48743aa" title="Cổng vào - Quầy bán vé" index="2" 
