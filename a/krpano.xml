@@ -1,7 +1,8 @@
 <krpano version="1.21" title="CaMau Tour" onstart="" logkey="false" debugmode="false" debugkeys="true" debugjsactions="false" debugjsplugins="false" bgcolor="#ffffff" projectfloorplanurl="" projecttitleid="project_title" projectdescriptionid="">
 	<include url="vtourskin.xml" />
 		<include url="videointerface.xml" />
-	
+		<include url="calloutskin.xml" />
+			<include url="calloutcore.xml" />
 	<layer name="button_left_only" type="container" align="rightbottom" x="20" y="20" 
 	 bgcolor="0xFFFFFF" keep="true" bgalpha="1.0" visible="true" alpha="1.0" width="250" height="250"
 		onclick="switch(plugin[skin_gyro].enabled); if(plugin[skin_gyro].enabled, skin_showmap(false));" bgcapture="true"

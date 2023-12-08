@@ -346,7 +346,7 @@ resumeautorotation(forcehotspot);
 
 
 
-<include url="callouttitles.xml"/>
+
 <callout author_context="true"/>
 <style
 	distancepopup="2"
